@@ -1,0 +1,79 @@
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    overflow: hidden;
+    transform-style: preserve-3d;
+    perspective: 1000px;
+  }
+  
+  .image-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 4px 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  
+  /* Button setup */
+  .img-btn {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%) rotateY(0deg); /* keep button facing forward */
+    background-color: rgb(16, 2, 37);
+    color: white;
+    padding: 8px 16px;
+    border: none;
+    font-weight: bold;
+    border-radius: 5px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+    backface-visibility: hidden;
+  }
+  .img-btn:active{
+    background-color: white;
+    color: rgb(16, 2, 37);
+  }
+  
+  /* Show button on hover */
+  .image-container:hover .img-btn {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .wel{
+    transition: opacity 2s ease-in-out ;
+  }
+  .wel.hide {
+    opacity: 0; 
+  }
+  .infop {
+    position: relative;
+    top: 200px;
+    margin-top: 100px; /* Space from slider */
+    padding: 0 100px 60px 100px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2em;
+    line-height: 1.8em;
+    color: white;
+    text-align: center;
+  }
+  .infop {
+  display: inline-block;
+  transform: translateX(-50%) rotateY(90deg); /* start off-screen & rotated */
+  opacity: 0;
+  animation: slideIn 1s ease-out forwards;
+  /* Optional: delay or repeat */
+  /* animation-delay: 0.5s; */
+}
+
+@keyframes slideIn {
+  to {
+    transform: translateX(0) rotateY(0deg);
+    opacity: 1;
+  }
+}

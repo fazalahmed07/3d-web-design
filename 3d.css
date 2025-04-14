@@ -1,0 +1,174 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
+body{
+    background-color: rgb(16, 2, 37); 
+}
+header{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding: 20px 100px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 99; 
+    transition: top 0.3s ease-in-out ; 
+}
+header.hide {
+    top: -100px; 
+  }
+.navi a{
+    color: white;
+    position: relative;
+    font-size: 1.5em ;
+    text-decoration: none ;
+    font-weight: 500;
+    margin-right: 20px; 
+    right: 100px; 
+}
+
+.navi a::after{
+    content: ' ';
+    position: absolute;
+    width: 100%;
+    height: 3px;
+    background: #fff;
+    border-radius :5px; ;
+    left:0;
+    bottom: -6px;
+    z-index: 100;
+    transform-origin: right;
+    transform: scaleX(0);
+    transition: .5s;
+}
+.navi a:hover::after{
+    border-radius: 5px;
+    transform-origin: left;
+    transform: scaleX(1);
+    
+}
+.banner{
+    top: 300px;
+    width: 100%;
+    height: 100vh;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(16, 2, 37);
+}
+.banner .slider{
+position: absolute;
+width: 200px;
+height: 250px;
+top: 10%;
+left: calc(50% - 100px);
+transform-style: preserve-3d;
+transform: perspective(1000px);
+animation: autoRun 20s linear infinite;
+z-index: 2;
+}
+@keyframes autoRun{
+    from{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(0deg);
+    }
+    to{
+        transform: perspective(1000px) rotateX(-16deg) rotateY(360deg); 
+    }
+}
+.banner .slider .item{
+    position: absolute;
+    inset: 0 0 0 0;
+    transform-style: preserve-3d;
+    transform:
+    rotateY(calc((var(--position) - 1) * (360deg / var(--quantity))))
+    translateZ(450px);
+}
+
+.banner .slider .item img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 3px solid white;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2)
+}
+.banner .content{
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: min(1400px, 100vw);
+    height: max-content;
+    padding-bottom: 100px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1;
+}   
+
+.banner .content h1 {
+    font-family: Rubik, sans-serif;
+    font-size: 8em;
+    line-height: 1em;
+    color: white;
+    position: relative;
+    top: 150px;
+    z-index: 3;
+    background: linear-gradient(to bottom, white 50%, transparent 50%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    transform: translateX(-100px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+.banner .content h1.show{
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* Transparent effect only on the model */
+.banner .content h1::after {
+    position: absolute;
+    inset: 0 0 0 0;
+    content: attr(data-content);
+    color: transparent;
+    -webkit-text-stroke: 2px white;
+    mix-blend-mode: difference; /* Makes it transparent only where it overlaps */
+    z-index: 2;
+}
+
+.banner .work {
+    position: absolute;
+    right: 5%;  /* Moves the text to the right */
+    bottom: 10%; /* Adjust as needed */
+    font-family: Arial, sans-serif;
+    font-size: 50px; /* Adjust size */
+    color: white; /* Make sure it’s visible */
+    text-align: right;
+    transform: translateX(100px);
+    opacity: 0;
+    transition: all 1s ease;
+}
+
+.banner .work.show{
+    transform: translateX(0);
+    opacity: 1;
+}
+.banner .content .model{
+    background: transparent;
+    width: 100%;
+    height: 75vh;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: top center;
+    z-index: 0;
+}

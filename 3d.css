@@ -1,31 +1,221 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap');
 body{
     background-color: rgb(16, 2, 37); 
 }
+.infop {
+  max-width:1100px;
+  margin: 6rem auto 3rem;
+  padding: 0 2rem;
+  font-size: 1.25rem;     /* Larger text for desktop */
+  line-height: 2;
+  color: #e0e0e0;
+  text-align: justify;
+  font-family: 'Poppins', sans-serif;
+}
+.logo {
+  display: inline-block; /* prevent it from taking full width */
+  margin: 0; /* reset margin */
+  max-height: 7rem;
+  max-width: 7rem;
+}
+.logo img {
+  display: inline-block;
+  max-width: 100%;
+  height: auto;
+}
+
+*,::before,::after{
+  box-sizing: border-box;
+}
+
+.logo{
+  width: 9.375em;
+  height: 9.375em;
+  margin-right: 2rem;
+}
 header{
     position: fixed;
     top:0;
-    left:0;
+    left: 0;
     width:100%;
     padding: 20px 100px;
     display: flex;
-    justify-content: space-between;
+    color: rgb(54, 12, 117); ;
+    justify-content: flex-start;
     align-items: center;
     z-index: 99; 
     transition: top 0.3s ease-in-out ; 
 }
+.bd-grid{
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  width: 100%;
+  gap: 2rem;   
+  padding: 0 2rem ;
+}
+@media (max-width: 600px) {
+  .infop {
+    max-width: 600px;
+    font-size: 1rem;
+    line-height: 1.7;
+    padding: 0 1.2rem;
+    text-align: center;
+  }
+}
+@media screen and (max-width: 768px){
+  header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 20px 1.5rem;
+  }
+  .infop{
+    text-align: left; 
+    word-break: break-word;
+  }
+  .logo {
+    margin-right: auto;
+    top: 0;
+    left: 0;
+  }
+
+  .toggle {
+    margin-left: 2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 101;
+    cursor: pointer;
+    font-size: 2rem; /* or whatever size fits */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0;
+    color: #fff;
+  }
+  .toggle.hide {
+    display: none ;
+  }
+  .menuna {
+    margin-left: auto;
+    display: flex;
+    align-items: flex-start;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100%;
+    padding: 3.5rem 1.5rem 0;
+    background: rgba(255,255,255,0.1);
+    backdrop-filter: blur(10px);
+    transition: right 0.3s ease;
+    z-index: 100;
+  }
+
+  .menuna.show {
+    right: 0;
+  }
+
+  .navi {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  .navi a {
+    font-size: 1.25rem;
+    margin-right: 0;
+  }
+
+ .infop {
+    font-size: 1rem;         /* Slightly smaller text on phones */
+    line-height: 1.6;
+    padding: 0 1rem;
+    text-align: left;        /* Avoid justified weirdness on narrow screens */
+  }
+  .banner .content h1 {
+    font-size: 3em;
+  }
+
+  .banner .work {
+    font-size: 1.5em;
+  }
+  .closemen{
+   color: #fff;
+  position: absolute;
+  top: .75rem;
+  right: 1rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+.menuna .navi a {
+  right: 0 ;
+  display: flex;
+  column-gap: 1rem;
+}
+.menuna.show{
+  position: fixed;
+  top: 0;
+  right: 0;
+}
+  .wel {
+    font-size: 2em;
+  }
+  
+
+.nav_item{
+  margin-bottom: 2rem;
+}
 header.hide {
     top: -100px; 
   }
+  .nav_close, .nav_link, .nav_logo, .nav_toggle{
+  color: #fff;
+  }
+
+.nav_link:hover{
+  color:  #fff;
+}
+}
+@media (min-width: 769px) {
+  .menuna {
+    position: relative;
+    top: .8rem;
+    right: .7rem;
+    width: auto;
+    height: auto;
+    background: none;
+    right: 0;
+    padding: 0;
+    display: flex !important;
+  }
+  .closemen {
+    display: none;
+  }
+}
+
+.navi {
+  position: fixed;
+  top: 5rem;
+  right: 2.5rem;
+  margin-right: 3rem;
+  display: flex;
+  align-items: center;
+}
 .navi a{
     color: white;
     position: relative;
     font-size: 1.5em ;
     text-decoration: none ;
     font-weight: 500;
-    margin-right: 20px; 
-    right: 100px; 
+    margin-right: 20px;  
 }
 
 .navi a::after{
@@ -34,7 +224,7 @@ header.hide {
     width: 100%;
     height: 3px;
     background: #fff;
-    border-radius :5px; ;
+    border-radius :5px;   
     left:0;
     bottom: -6px;
     z-index: 100;
@@ -60,6 +250,42 @@ header.hide {
     align-items: center;
     background-color: rgb(16, 2, 37);
 }
+
+@media screen and (max-width: 768px){
+  .banner .content h1 {
+    font-size: 3em;
+  }
+  .banner .work {
+    font-size: 1.5em;
+  }
+  .slider-controls {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.slider-btn {
+  background: rgba(30,30,30,0.7);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.slider-btn:hover {
+  background: #fff;
+  color: #1a0033;
+}
+}
+
+
 .banner .slider{
 position: absolute;
 width: 200px;
@@ -68,7 +294,8 @@ top: 10%;
 left: calc(50% - 100px);
 transform-style: preserve-3d;
 transform: perspective(1000px);
-animation: autoRun 20s linear infinite;
+transition: transform 1s cubic-bezier(0.77,0,0.175,1);
+/*animation: autoRun 20s linear infinite;*/
 z-index: 2;
 }
 @keyframes autoRun{
@@ -171,4 +398,46 @@ z-index: 2;
     background-repeat: no-repeat;
     background-position: top center;
     z-index: 0;
+}
+
+@media (min-width: 769px) {
+  .toggle {
+    display: none;
+  }
+}
+.infop {
+  width: 100%;
+   max-width: none;
+  margin: 6rem 0 3rem 0; /* No auto, so not centered */
+  padding: 0 2rem;
+  font-size: 1.125rem;     /* 18px desktop */
+  line-height: 1.8;
+  color: #e0e0e0;
+  text-align: justify;        /* Avoid "weird" word spacing on small screens */
+  font-family: 'Poppins', sans-serif;
+}
+.slider-controls {
+  position: absolute;
+  left: 50%;
+  top: 55%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 2rem;
+  z-index: 10;
+}
+
+.slider-btn {
+  background: rgba(30,30,30,0.7);
+  border: none;
+  color: #fff;
+  font-size: 2.5rem;
+  border-radius: 50%;
+  width: 3.5rem;
+  height: 3.5rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.slider-btn:hover {
+  background: #fff;
+  color: #1a0033;
 }

@@ -1,5 +1,4 @@
-
-  window.addEventListener('scroll', function () {
+   window.addEventListener('scroll', function () {
     const workText = document.querySelector('.work');
     const h1Text = document.querySelector('.banner .content h1');
 
@@ -22,7 +21,6 @@
     }
   });
 
-
 let lastScrollTop = 0;
 const header = document.querySelector('header'); // Selects the header tag
 
@@ -39,3 +37,62 @@ window.addEventListener('scroll', function () {
 
   lastScrollTop = currentScroll <= 0 ? 0 : currentScroll;
 });
+
+const toggle = document.querySelector('.toggle');
+const menu = document.querySelector('.menuna');
+
+toggle.addEventListener('click', () => {
+  menu.classList.add('show');
+  toggle.classList.add('hide');
+});
+
+document.querySelector('.closemen').addEventListener('click', () => {
+  menu.classList.remove('show');
+  toggle.classList.remove('hide');
+});
+const slider = document.querySelector('.slider');
+const quantity = parseInt(slider.style.getPropertyValue('--quantity'), 10) || 10;
+let currentIndex = 0;
+let autoRotateInterval;
+let isPaused = false;
+
+// Helper to update the slider's rotation
+function updateSlider() {
+  slider.style.transform = `perspective(1000px) rotateX(-16deg) rotateY(${-currentIndex * (360 / quantity)}deg)`;
+}
+
+// Auto-rotate function
+function startAutoRotate() {
+  autoRotateInterval = setInterval(() => {
+    if (!isPaused) {
+      currentIndex = (currentIndex + 1) % quantity;
+      updateSlider();
+    }
+  }, 2000); // Change slide every 2 seconds
+}
+
+function pauseAutoRotate() {
+  isPaused = true;
+  clearInterval(autoRotateInterval);
+  setTimeout(() => {
+    isPaused = false;
+    startAutoRotate();
+  }, 2000); // Pause for 2 seconds
+}
+
+// Button event listeners
+document.getElementById('prevSlide').addEventListener('click', () => {
+  currentIndex = (currentIndex - 1 + quantity) % quantity;
+  updateSlider();
+  pauseAutoRotate();
+});
+
+document.getElementById('nextSlide').addEventListener('click', () => {
+  currentIndex = (currentIndex + 1) % quantity;
+  updateSlider();
+  pauseAutoRotate();
+});
+
+// Initialize
+updateSlider();
+startAutoRotate();

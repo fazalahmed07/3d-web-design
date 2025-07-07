@@ -2,26 +2,40 @@
 <html>
     <head>
         <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE-edge">
-        <meta name="viewport" content="width=device-width",
-        initial-scale="1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>3d design</title>
+        <link href="https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css" rel="stylesheet">
         <link rel="stylesheet" href="3d.css">
         <link rel="stylesheet" href="buttons.css">
     </head>
     <body>
       <header>
-        <h2 class="logo"> <img src="op web.png" alt="one piece" style=" width: 150px;
-         height: 150px; background-color: transparent;" ></h2>
-        <nav class="navi">
-            <a href="#">Home</a>
-            <a href="#">About</a>
-            <a href="#">Services</a>
-            <a href="#">Contact</a>    
-        </nav>
+        <div class="bd_grid">
+        <h2 class="logo"> <img src="op web.png" alt="one piece"  ></h2>
+         <div class="toggle" id="toggle">
+          <i class='bx bx-menu'></i>
+         </div>
+          <div class="menuna" id="menuna">
+            <div class="closemen" id="closemen">
+              <i class='bx bx-x'></i>
+            </div>
+              <nav class="navi">
+            <a class="nav_item" href="#">Home</a>
+            <a class="nav_item" href="#">About</a>
+            <a class="nav_item" href="#">Services</a>
+            <a class="nav_item" href="#">Contact</a>    
+            </nav>
+          </div>
+      
+        </div>
         </header>
-        <h1 style="position: relative; top: 100px; text-align: center; color: white; " class="wel">Welcome Pirates</h1>
+        <h1 style="position: relative; top: 6.25em; text-align: center; color: white; " class="wel">Welcome Pirates</h1>
       <div class="banner">
+        <div class="slider-controls">
+            <button id="prevSlide" class="slider-btn"><i class='bx bx-chevron-left'></i></button>
+           <button id="nextSlide" class="slider-btn"><i class='bx bx-chevron-right'></i></button>
+          </div>
         <div class="slider" style="--quantity : 10">
           <div class="item" style="--position : 1"><div class="image-container"><img src="luffy.jpeg" alt=""><button class="img-btn">Details</button></div></div>
           <div class="item" style="--position : 2"><div class="image-container"><img src="zoro.jpeg" alt=""><button class="img-btn">Details</button></div></div>
@@ -46,7 +60,8 @@
           <img src="large strw hat.png" alt="" style="height: 450px; width: 400px;">
         </div>
       </div>
-      <p class="infop">
+      <section class="infop">
+      <p>
         The Straw Hat Pirates are a group of adventurers brought together by fate and led by Monkey D. Luffy, 
         a young man with the dream of becoming the Pirate King. From the beginning of the story in One Piece, Luffy sets out from his hometown
         to find the legendary treasure known as the One Piece, left behind by Gol D. Roger. Along his journey, he gathers a crew of strong-willed 
@@ -58,6 +73,7 @@
        Each arc in the series reveals more about their pasts and strengthens their bond as a family. Through laughter, loss, and endless battles,
       the Straw Hat Pirates become a legendary crew whose adventures shake the very foundations of the world.
       </p>  
+      </section>
     <script src="3dd.js"></script>
     </body>
     </html>

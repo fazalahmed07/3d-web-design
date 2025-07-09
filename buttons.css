@@ -51,29 +51,4 @@
   .wel.hide {
     opacity: 0; 
   }
-  .infop {
-    position: relative;
-    top: 200px;
-    margin-top: 100px; /* Space from slider */
-    padding: 0 100px 60px 100px;
-    font-family: 'Poppins', sans-serif;
-    font-size: 1.2em;
-    line-height: 1.8em;
-    color: white;
-    text-align: center;
-  }
-  .infop {
-  display: inline-block;
-  transform: translateX(-50%) rotateY(90deg); /* start off-screen & rotated */
-  opacity: 0;
-  animation: slideIn 1s ease-out forwards;
-  /* Optional: delay or repeat */
-  /* animation-delay: 0.5s; */
-}
 
-@keyframes slideIn {
-  to {
-    transform: translateX(0) rotateY(0deg);
-    opacity: 1;
-  }
-}
